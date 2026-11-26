@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Dominance</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;background:#101722;color:#fff;
+font-family:Arial,sans-serif;
+display:flex;align-items:center;justify-content:center;
+min-height:100vh;padding:20px;text-align:center
+}
+main{width:100%;max-width:650px}
+h1{font-size:clamp(35px,8vw,60px);color:#d6b36a}
+p{color:#aeb9c8;line-height:1.8}
+select,button{
+padding:14px;border-radius:9px;border:1px solid #526176;
+background:#202d3e;color:white;font-size:16px;
+width:100%;margin:10px 0
+}
+button{background:#a47c35;border:0;font-weight:bold}
+</style>
+</head>
+<body>
+<main>
+<h1>WORLD DOMINANCE</h1>
+<p id="subtitle">The World Is Yours To Shape</p>
+<select id="language" onchange="changeLanguage()">
+<option value="en">English</option>
+<option value="fa">فارسی</option>
+<option value="ar">العربية</option>
+<option value="fr">Français</option>
+<option value="de">Deutsch</option>
+<option value="zh">中文</option>
+</select>
+<h2 id="welcome">Welcome, Commander</h2>
+<p id="description">Lead your nation. Shape the global future.</p>
+<button id="start" onclick="startGame()">START GAME</button>
+<p id="status">Scenario: 2026</p>
+</main>
+<script>
+const languages={
+en:{
+subtitle:"The World Is Yours To Shape",
+welcome:"Welcome, Commander",
+description:"Lead your nation. Shape the global future.",
+start:"START GAME",status:"Scenario: 2026",direction:"ltr"
+},
+fa:{
+subtitle:"آینده جهان در دستان توست",
+welcome:"فرمانده، خوش آمدی",
+description:"کشورت را رهبری کن و آینده جهان را بساز.",
+start:"شروع بازی",status:"سناریو: ۲۰۲۶",direction:"rtl"
+},
+ar:{
+subtitle:"العالم بين يديك لتشكيله",
+welcome:"أهلاً أيها القائد",
+description:"قد أمتك واصنع مستقبل العالم.",
+start:"ابدأ اللعبة",status:"السيناريو: ٢٠٢٦",direction:"rtl"
+},
+fr:{
+subtitle:"Le monde est à façonner",
+welcome:"Bienvenue, Commandant",
+description:"Dirigez votre nation. Façonnez l'avenir.",
+start:"COMMENCER",status:"Scénario : 2026",direction:"ltr"
+},
+de:{
+subtitle:"Die Zukunft der Welt liegt in deiner Hand",
+welcome:"Willkommen, Kommandant",
+description:"Führe deine Nation und gestalte die Zukunft.",
+start:"SPIEL STARTEN",status:"Szenario: 2026",direction:"ltr"
+},
+zh:{
+subtitle:"世界的未来由你塑造",
+welcome:"欢迎，指挥官",
+description:"领导你的国家，塑造世界的未来。",
+start:"开始游戏",status:"剧本：2026",direction:"ltr"
+}
+};
+function changeLanguage(){
+const lang=document.getElementById("language").value;
+const t=languages[lang];
+document.documentElement.lang=lang;
+document.documentElement.dir=t.direction;
+document.getElementById("subtitle").textContent=t.subtitle;
+document.getElementById("welcome").textContent=t.welcome;
+document.getElementById("description").textContent=t.description;
+document.getElementById("start").textContent=t.start;
+document.getElementById("status").textContent=t.status;
+}
+function startGame(){
+alert("World Dominance — Development Started!");
+}
+</script>
+</body>
+</html>
